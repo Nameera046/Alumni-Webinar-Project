@@ -66,7 +66,7 @@ export default function WebinarStudentFeedbackForm() {
           </div>
 
           <div className="form-card">
-            <form className="form-fields" onSubmit={handleSubmit}>
+            <form className="form-fields" onSubmit={handleSubmit} noValidate>
               {/* Name */}
               <div className="form-group">
                 <label>

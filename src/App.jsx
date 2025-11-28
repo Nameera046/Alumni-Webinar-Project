@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Briefcase, Building2, MessageSquare, ClipboardCheck, CheckCircle } from 'lucide-react';
 import WebinarAlumniFeedbackForm from './components/WebinarAlumniFeedbackForm';
 import WebinarCompletedDetailsForm from './components/WebinarCompletedDetailsForm';
@@ -10,6 +9,16 @@ import WebinarStudentFeedbackForm from './components/WebinarStudentFeedbackForm'
 
 function App() {
   const [activeTab, setActiveTab] = useState('webinar-completed');
+  const tabsRef = useRef(null);
+
+  useEffect(() => {
+    if (tabsRef.current) {
+      const activeButton = tabsRef.current.querySelector(`[data-tab-id="${activeTab}"]`);
+      if (activeButton) {
+        activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [activeTab]);
 
   const tabs = [
     { id: 'webinar-Alumni-Request', name: 'Alumni Webinar Feedback', icon: CheckCircle },
@@ -40,13 +49,14 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-violet-50">
       {/* Navigation Tabs */}
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-purple-100 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex overflow-x-auto scrollbar-hide">
+        <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={tabsRef} className="flex overflow-x-auto scrollbar-hide">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
+                  data-tab-id={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-3 px-6 py-8 font-semibold text-lg whitespace-nowrap transition-all duration-300 border-b-4 ${
                     activeTab === tab.id

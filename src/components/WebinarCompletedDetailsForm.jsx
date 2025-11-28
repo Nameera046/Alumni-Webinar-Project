@@ -24,6 +24,12 @@ const WebinarCompletedDetailsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!formData.chosenTopic || !formData.attendanceFile || !formData.prizeWinnerEmail) {
+      alert("Please fill all required fields");
+      return;
+    }
+
     console.log("Submitted:", formData);
     alert("Form submitted successfully! 🎉");
   };
@@ -48,7 +54,7 @@ const WebinarCompletedDetailsForm = () => {
             </p>
           </div>
           <div className="form-card">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="form-fields">
                 <div className="form-group">
                   <label><FiBookOpen className="field-icon" /> Chosen Topic <span>*</span></label>
