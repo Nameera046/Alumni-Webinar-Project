@@ -42,7 +42,7 @@
 }
 .form-container {
   width: 100%;
-  max-width: 60rem;
+    max-width: 45rem;   
 }
 .form-header { text-align: center; margin-bottom: 2rem; }
 .icon-wrapper {
@@ -70,7 +70,7 @@
   border-radius: 2rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   border: 1px solid #e0cfff;
-  padding: 2rem;
+  padding: 1.25rem;
 }
 .form-fields { display: flex; flex-direction: column; gap: 1.5rem; }
 .form-group label {
@@ -97,6 +97,8 @@
 .input-field:focus, .select-field:focus, .textarea-field:focus {
   border-color: #7c3aed;
   box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
 }
 .textarea-field { resize: none; }
 .select-field {
@@ -124,8 +126,8 @@
 .checkbox-label { font-weight: 600; color: #4b3f91; cursor: pointer; user-select: none; }
 .submit-btn {
   width: 100%;
-  padding: 1.25rem;
-  font-size: 1.125rem;
+  padding: 1rem;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 1rem;
   background: linear-gradient(to right, #7c3aed, #3b82f6);
